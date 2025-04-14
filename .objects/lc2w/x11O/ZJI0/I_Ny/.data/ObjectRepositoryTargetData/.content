@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="EwjfTtNTrkuFIRwKtBTB6Q" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="1619ef2c-5458-464a-9559-431f91d9f722" CvElementArea="265, 603, 366, 43" CvType="InputBox" DesignTimeRectangle="267, 605, 362, 42" DesignTimeScaleFactor="1.25" ElementType="DropDown" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SELECT' class='form-control' aaname='' /&gt;" Guid="967e12fd-dfad-4d03-b692-2a467b486e07" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="1619ef2c-5458-464a-9559-431f91d9f722" CvTextArea="265, 576, 86, 16" CvTextArgument="Provincia:" CvType="Text" DesignTimeRectangle="267, 574, 89, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='lselect' aaname='Provincia: ' check:innerText='Provincia:' /&gt;" Guid="4bdbeda8-3a86-48ad-91d5-37ac7473f84e" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="9eea58c6fa0d8f097ac822e7d4e715fd.png" xmlns="">0dg1IP7FyJkGmkXOCbMk7-w</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SelectItem</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
