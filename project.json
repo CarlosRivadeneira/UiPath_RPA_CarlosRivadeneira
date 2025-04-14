@@ -2,7 +2,7 @@
   "name": "UiPath_RPA_CarlosRivadeneira",
   "projectId": "d5fef930-b742-4d50-8732-b76e3c9cc882",
   "description": "RPA Mi CNT",
-  "main": "Main.xaml",
+  "main": "Workflows\\Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[3.0.0-preview]",
     "UiPath.Mail.Activities": "[2.0.11]",
@@ -49,8 +49,8 @@
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
-      "filePath": "Main.xaml",
-      "uniqueId": "6e5b8358-3064-4cd4-8f82-c91d02e48c49",
+      "filePath": "Workflows\\Main.xaml",
+      "uniqueId": "3f33effb-a594-416b-b26e-68f2e49eb03e",
       "input": [],
       "output": []
     }
