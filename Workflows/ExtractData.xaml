@@ -118,6 +118,8 @@
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="ExtractData" sap:VirtualizedContainerService.HintSize="908.8000000000001,562.84" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -126,142 +128,200 @@
       <Variable x:TypeArguments="x:Int32" Name="currentPage" />
       <Variable x:TypeArguments="x:Int32" Name="totalPages" />
       <Variable x:TypeArguments="sd:DataTable" Name="tempTable" />
+      <Variable x:TypeArguments="InArgument" Name="[Nothing]" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable DataTable="[in_out_outputContactos]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="416,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Número_x0020_Telefónico&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Nombre_x0020_del_x0020_Propietario&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Dirección&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Localidad&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Número_x0020_Telefónico&gt;text&lt;/Número_x0020_Telefónico&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge  Guía Telefónica CNT EP (1)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="56dcf482-654e-47a4-aa10-52c4ba1e065f" Version="V2">
-      <uix:NApplicationCard.Body>
-        <ActivityAction x:TypeArguments="x:Object">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-          </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="449.6,338.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <uix:NGetText DisplayName="Get Text 'Página 1 de 63'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="56dcf482-654e-47a4-aa10-52c4ba1e065f" TextString="[pageText]" Version="V4">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="dda20460-3997-4c08-adbc-6e0040423704" ContentHash="qHKkQoAW3EuILCP6kBhgNg" CvTextArea="509, 596, 119, 20" CvType="AnyWordGroup" DesignTimeRectangle="510, 594, 719, 26" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='2' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' /&gt;" Guid="eed73084-5011-4dd1-b518-5a9a93a73a33" ImageBase64="" InformativeScreenshot="6daa5b09ac54dc32c9ff134788cbf947.png" Reference="02ArrpoAt0eMrkGelrwmaQ/_WDvxhkjnkaeHAKzkkeyjg" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="Selector, CV" Version="V5" Visibility="Interactive" />
-              </uix:NGetText.Target>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uix:NGetText>
-            <Assign sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int32">[currentPage]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[CInt(pageText.Split(" "c)(1))]</InArgument>
-              </Assign.Value>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="Assign_4">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int32">[totalPages]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[CInt(pageText.Split(" "c)(3))]</InArgument>
-              </Assign.Value>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </Assign>
-            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[tempTable]" DisplayName="Extract Table Data 'Extract Table Data'" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='telefono'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='nombre'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='direccion'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='localidad'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Column-1' attr='fulltext' /&gt;&lt;column name='Column-2' attr='fulltext' /&gt;&lt;column name='Column-3' attr='fulltext' /&gt;&lt;/extract-table&gt;" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="56dcf482-654e-47a4-aa10-52c4ba1e065f" Version="V4">
-              <uix:NExtractData.Target>
-                <uix:TargetAnchorable BrowserURL="https://micnt.com.ec/cntapp/guia104/php/guia_cntat.php?hflagsubmit=1&amp;cmbcriterio=3&amp;cmbprov2=17&amp;txtusuarioapellido=RIVADENEIRA&amp;txtusuarionombre=&amp;captchaSelection=48b5c8ec0ed5c3f5ad14bdd4c3fe091e85883d13" ContentHash="Wi3MPJpQAUyXftDGTwcROA" DesignTimeRectangle="509, 341, 900, 861" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' tag='TABLE' /&gt;" Guid="9da3fad0-b7ec-4c18-aba9-ee265c5cf119" InformativeScreenshot="c04ce5b08f10a44a6cbb6067bc44c10c.png" Reference="02ArrpoAt0eMrkGelrwmaQ/Om7t1BHLmk6MMrAj0AhU6A" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" />
-              </uix:NExtractData.Target>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uix:NExtractData>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[tempTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="416,49.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-              <ui:ForEachRow.Body>
-                <ActivityAction x:TypeArguments="sd:DataRow">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="502.4,664" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <ui:BuildDataTable DataTable="[in_out_outputContactos]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="417.6,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Número_x0020_Telefónico&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Nombre_x0020_del_x0020_Propietario&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Dirección&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Localidad&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Número_x0020_Telefónico&gt;text&lt;/Número_x0020_Telefónico&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="417.6,238.4" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+      <ui:InterruptibleDoWhile.Body>
+        <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="416,108" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge  Guía Telefónica CNT EP (1)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_browser]" InteractionMode="DebuggerApi" ScopeGuid="56dcf482-654e-47a4-aa10-52c4ba1e065f" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence sap:VirtualizedContainerService.HintSize="449.6,508.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetText DisplayName="Get Text 'Página 1 de 63'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="56dcf482-654e-47a4-aa10-52c4ba1e065f" TextString="[pageText]" Version="V4">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="dda20460-3997-4c08-adbc-6e0040423704" ContentHash="YdTZyQcZ0UyrApjUtTZepw" CvTextArea="509, 596, 119, 20" CvType="AnyWordGroup" DesignTimeRectangle="510, 594, 719, 26" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='2' tag='TABLE' /&gt;&lt;webctrl tag='TD' width='80%' /&gt;" Guid="eed73084-5011-4dd1-b518-5a9a93a73a33" ImageBase64="" InformativeScreenshot="6daa5b09ac54dc32c9ff134788cbf947.png" Reference="02ArrpoAt0eMrkGelrwmaQ/_WDvxhkjnkaeHAKzkkeyjg" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="Selector, CV" Version="V5" Visibility="Interactive" />
+                    </uix:NGetText.Target>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[Not String.IsNullOrWhiteSpace(row(&quot;telefono&quot;).ToString) AndAlso&#xD;&#xA;row(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;número reservado&quot; AndAlso&#xD;&#xA;row(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;:: datos telefonicos ::&quot;]" sap:VirtualizedContainerService.HintSize="468.8,604" sap2010:WorkflowViewState.IdRef="If_1">
-                      <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="467.2,384.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                          <Sequence.Variables>
-                            <Variable x:TypeArguments="x:String" Name="nombreCompleto" />
-                          </Sequence.Variables>
+                  </uix:NGetText>
+                  <Assign sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[currentPage]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[CInt(pageText.Split(" "c)(1))]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[totalPages]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[CInt(pageText.Split(" "c)(3))]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[tempTable]" DisplayName="Extract Table Data 'Extract Table Data'" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='telefono'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='nombre'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='direccion'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='localidad'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Column-1' attr='fulltext' /&gt;&lt;column name='Column-2' attr='fulltext' /&gt;&lt;column name='Column-3' attr='fulltext' /&gt;&lt;/extract-table&gt;" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="56dcf482-654e-47a4-aa10-52c4ba1e065f" Version="V4">
+                    <uix:NExtractData.Target>
+                      <uix:TargetAnchorable BrowserURL="https://micnt.com.ec/cntapp/guia104/php/guia_cntat.php?hflagsubmit=1&amp;cmbcriterio=3&amp;cmbprov2=17&amp;txtusuarioapellido=RIVADENEIRA&amp;txtusuarionombre=&amp;captchaSelection=48b5c8ec0ed5c3f5ad14bdd4c3fe091e85883d13" ContentHash="cM9llL3Qq0CdaV6F3Qr6JA" DesignTimeRectangle="509, 341, 900, 861" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' tag='TABLE' /&gt;" Guid="9da3fad0-b7ec-4c18-aba9-ee265c5cf119" InformativeScreenshot="c04ce5b08f10a44a6cbb6067bc44c10c.png" Reference="02ArrpoAt0eMrkGelrwmaQ/Om7t1BHLmk6MMrAj0AhU6A" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" />
+                    </uix:NExtractData.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NExtractData>
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[tempTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                    <ui:ForEachRow.Body>
+                      <ActivityAction x:TypeArguments="sd:DataRow">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="451.2,550.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_5">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:String">[nombreCompleto]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">[row("nombre").ToString.Trim.Replace("�", "Ñ")]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&#xD;&#xA;    row(&quot;telefono&quot;).ToString.Trim,&#xD;&#xA;&#x9;nombreCompleto,&#xD;&#xA;    row(&quot;direccion&quot;).ToString.Trim.Replace(&quot;�&quot;, &quot;Ñ&quot;),&#xD;&#xA;    row(&quot;localidad&quot;).ToString.Trim.Replace(&quot;�&quot;, &quot;Ñ&quot;)&#xD;&#xA;}]" DataTable="[in_out_outputContactos]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="433.6,211.2" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                          <If Condition="[Not String.IsNullOrWhiteSpace(row(&quot;telefono&quot;).ToString) AndAlso&#xD;&#xA;row(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;número reservado&quot; AndAlso&#xD;&#xA;row(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;:: datos telefonicos ::&quot;]" sap:VirtualizedContainerService.HintSize="417.6,490.4" sap2010:WorkflowViewState.IdRef="If_1">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,271.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="nombreCompleto" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&#xD;&#xA;    row(&quot;telefono&quot;).ToString.Trim,&#xD;&#xA;&#x9;row(&quot;nombre&quot;).ToString.Trim.Replace(&quot;�&quot;, &quot;Ñ&quot;),&#xD;&#xA;    row(&quot;direccion&quot;).ToString.Trim.Replace(&quot;�&quot;, &quot;Ñ&quot;),&#xD;&#xA;    row(&quot;localidad&quot;).ToString.Trim.Replace(&quot;�&quot;, &quot;Ñ&quot;)&#xD;&#xA;}]" DataTable="[in_out_outputContactos]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="382.4,211.2" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
                         </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="467.2,89.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </Sequence>
-                      </If.Else>
-                    </If>
-                  </Sequence>
-                </ActivityAction>
-              </ui:ForEachRow.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ForEachRow>
-          </Sequence>
-        </ActivityAction>
-      </uix:NApplicationCard.Body>
-      <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" ContentHash="Zoas7ddwikKmn_S36-IHeQ" IconBase64="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" InformativeScreenshot="bb2ab49fcb42744906ee9418cd23091a.jpg" Reference="02ArrpoAt0eMrkGelrwmaQ/SvUJXTW50UiwbLQSp3sYOw" Selector="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" Url="https://micnt.com.ec/cntapp/guia104/php/guia_cntat.php?hflagsubmit=0&amp;cmbcriterio=3&amp;cmbprov2=17&amp;txtusuarioapellido=&amp;txtusuarionombre=&amp;captchaSelection=" Version="V2" />
-      </uix:NApplicationCard.TargetApp>
+                      </ActivityAction>
+                    </ui:ForEachRow.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ForEachRow>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="56dcf482-654e-47a4-aa10-52c4ba1e065f" Timeout="10" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="c17e3541-e3a6-4184-beda-0286c1b6d712" ContentHash="Kiy8pA0PsUuXkWhSn-rTww" CvElementArea="1367, 831, 21, 22" CvType="ArrowButton" DesignTimeRectangle="1369, 833, 17, 17" DesignTimeScaleFactor="1.25" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='' aaname='Ir Página Siguiente' /&gt;" Guid="c00f53c6-dcfa-444d-9a56-4356319093ee" InformativeScreenshot="69bc69b2b64ae1d4c30c2310c830768d.png" Reference="02ArrpoAt0eMrkGelrwmaQ/giqMxDkGSUaGhA0VwwLReg" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Página &quot; + currentPage.ToString + &quot;: &quot; + tempTable.AsEnumerable().Count(Function(r) Not String.IsNullOrWhiteSpace(r(&quot;Telefono&quot;).ToString) AndAlso r(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;número reservado&quot; AndAlso r(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;:: datos telefonicos ::&quot;).ToString + &quot; filas válidas añadidas. Total acumulado: &quot; + in_out_outputContactos.Rows.Count.ToString]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,49.6" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[currentPage.ToString]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" ContentHash="Zoas7ddwikKmn_S36-IHeQ" IconBase64="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" InformativeScreenshot="bb2ab49fcb42744906ee9418cd23091a.jpg" Reference="02ArrpoAt0eMrkGelrwmaQ/SvUJXTW50UiwbLQSp3sYOw" Selector="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" Url="https://micnt.com.ec/cntapp/guia104/php/guia_cntat.php?hflagsubmit=0&amp;cmbcriterio=3&amp;cmbprov2=17&amp;txtusuarioapellido=&amp;txtusuarionombre=&amp;captchaSelection=" Version="V2" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </ui:InterruptibleDoWhile.Body>
+      <ui:InterruptibleDoWhile.Condition>
+        <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="currentPage &lt; CInt(in_config(&quot;maxPaginas&quot;)) And currentPage &lt; totalPages" />
+      </ui:InterruptibleDoWhile.Condition>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InterruptibleDoWhile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="417.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Extraída página &quot; + currentPage.ToString + &quot; con &quot; + tempTable.AsEnumerable().Count(Function(r) Not String.IsNullOrWhiteSpace(r(&quot;Telefono&quot;).ToString) AndAlso r(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;número reservado&quot; AndAlso r(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;:: datos telefonicos ::&quot;).ToString + &quot; contactos válidos&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </uix:NApplicationCard>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Extraída página &quot; + currentPage.ToString + &quot; con &quot; + tempTable.AsEnumerable().Count(Function(r) Not String.IsNullOrWhiteSpace(r(&quot;Telefono&quot;).ToString) AndAlso r(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;número reservado&quot; AndAlso r(&quot;Telefono&quot;).ToString.Trim.ToLower &lt;&gt; &quot;:: datos telefonicos ::&quot;).ToString + &quot; contactos válidos&quot;]" />
+    </ui:LogMessage>
   </Sequence>
 </Activity>

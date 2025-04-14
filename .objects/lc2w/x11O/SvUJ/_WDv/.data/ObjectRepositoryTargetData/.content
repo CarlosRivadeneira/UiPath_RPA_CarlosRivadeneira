@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-16"?>
-<ObjectRepositoryTargetData ContentHash="qHKkQoAW3EuILCP6kBhgNg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ObjectRepositoryTargetData ContentHash="YdTZyQcZ0UyrApjUtTZepw" Reference="02ArrpoAt0eMrkGelrwmaQ/_WDvxhkjnkaeHAKzkkeyjg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ObjectRepositoryTargetData.Data>
-    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="dda20460-3997-4c08-adbc-6e0040423704" CvTextArea="509, 596, 119, 20" CvType="AnyWordGroup" DesignTimeRectangle="510, 594, 719, 26" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='2' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' /&gt;" Guid="eed73084-5011-4dd1-b518-5a9a93a73a33" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="Selector, CV" Version="V5" Visibility="Interactive">
-      <imageRef attrName="InformativeScreenshot" originalValue="6daa5b09ac54dc32c9ff134788cbf947.png" xmlns="">011gkZdo2iUa-LFN8E-GXDA</imageRef>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="dda20460-3997-4c08-adbc-6e0040423704" CvTextArea="509, 596, 119, 20" CvType="AnyWordGroup" DesignTimeRectangle="510, 594, 719, 26" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='2' tag='TABLE' /&gt;&lt;webctrl tag='TD' width='80%' /&gt;" Guid="eed73084-5011-4dd1-b518-5a9a93a73a33" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="Selector, CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="6daa5b09ac54dc32c9ff134788cbf947.png" xmlns="">0W-31-Jvx2kaERrlJ7_rVSw</imageRef>
     </TargetAnchorable>
     <x:String x:Key="ActivityType">GetText</x:String>
   </ObjectRepositoryTargetData.Data>
