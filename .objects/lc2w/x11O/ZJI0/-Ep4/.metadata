@@ -1,0 +1,14 @@
+﻿{
+  "Name": "estrella",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "-Ep4Yd0if0mKcvG3JhG9IQ",
+  "Reference": "02ArrpoAt0eMrkGelrwmaQ/-Ep4Yd0if0mKcvG3JhG9IQ",
+  "ParentRef": "02ArrpoAt0eMrkGelrwmaQ/ZJI0tARQ0kGOHPYMg4rZmw",
+  "Created": "2025-04-14T06:20:28.7685874Z",
+  "Updated": "2025-04-14T06:20:28.7685874Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

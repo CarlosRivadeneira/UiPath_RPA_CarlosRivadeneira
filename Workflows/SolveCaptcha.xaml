@@ -1,0 +1,359 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SolveCaptcha" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_out_captchaAttempts" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="out_success" Type="InArgument(x:Boolean)" />
+    <x:Property Name="argument1" Type="InArgument(x:String)" />
+    <x:Property Name="in_browser" Type="InArgument(ui:UiElement)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>SolveCaptcha_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SolveCaptcha" sap:VirtualizedContainerService.HintSize="892.0000000000001,607.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="captchaText" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="captchaMap" />
+      <Variable x:TypeArguments="x:String" Name="imageFile" />
+      <Variable x:TypeArguments="x:Int32" Name="captchaAttempts" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="468.8,584" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Intentar" sap:VirtualizedContainerService.HintSize="467.2,108" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge  Guía Telefónica CNT EP" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="433.6,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_browser]" InteractionMode="DebuggerApi" ScopeGuid="80d5e447-59ea-48c8-814d-bbf784b93126" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="467.2,762.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetText DisplayName="Get Text 'estrella'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="433.6,189.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="80d5e447-59ea-48c8-814d-bbf784b93126" TextString="[captchaText]" Version="V4">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="0f899450-a3ce-4250-9266-7b56b9cece14" ContentHash="qo9M6493okuwAxUftmXdaA" CvTextArea="265, 700, 63, 16" CvType="AnyWordGroup" DesignTimeRectangle="267, 699, 61, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='captchaText' /&gt;" Guid="e153743d-531a-4db4-b5da-ab161431de3c" InformativeScreenshot="1b99202916056bc675db2194ec94cec3.png" Reference="02ArrpoAt0eMrkGelrwmaQ/-Ep4Yd0if0mKcvG3JhG9IQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,114.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[captchaMap]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[New Dictionary(Of String, String) From {{"casa", "01.png"}, {"pilas", "49.png"}, {"dados", "23.png"}, {"Camara web", "64.png"}, {"insecto", "16.png"}, {"diskette", "58.png"}, {"calculadora", "12.png"}, {"esfero", "19.png"}, {"estrella", "32.png"}, {"reloj", "15.png"}, {"mundo", "99.png"}, {"llave", "04.png"}, {"corazon", "43.png"}, {"bandera", "06.png"}, {"foco", "21.png"}, {"celular", "45.png"}}]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <If Condition="[captchaMap.ContainsKey(captchaText)]" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="If_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[imageFile]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[captchaMap(captchaText)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If Condition="[captchaAttempts &gt;= 3]" sap:VirtualizedContainerService.HintSize="433.6,48" sap2010:WorkflowViewState.IdRef="If_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,108" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw Exception="[New Exception(&quot;Texto CAPTCHA no reconocido&quot;)]" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="Throw_3">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Throw>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,164.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="382.4,56.8" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[captchaAttempts]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[captchaAttempts + 1]</InArgument>
+                                </Assign.Value>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Assign>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SolveCaptcha - Invoke Workflow File (Workflows\SolveCaptcha.xaml)" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\SolveCaptcha.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InOutArgument x:TypeArguments="x:Int32" x:Key="in_out_captchaAttempts">[captchaAttempts]</InOutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="out_success" />
+                                </ui:InvokeWorkflowFile.Arguments>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80d5e447-59ea-48c8-814d-bbf784b93126" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="d65a5e2a-877d-4537-a0ea-5572f763371a" ContentHash="SZCFvD1dhkO17cTVIBKQnQ" CvElementArea="359, 742, 39, 46" CvType="Icon" DesignTimeRectangle="1506, 745, 40, 40" DesignTimeScaleFactor="1.25" ElementType="Icon" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='IMG' class='captchaImage' src='*{0}' /&gt;&quot;, imageFile)]" Guid="c263fedc-0c09-40bf-be61-5091c962b773" ImageBase64="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" InformativeScreenshot="cb0cf006b6533ba1dece49476ccf1dae.png" Reference="02ArrpoAt0eMrkGelrwmaQ/hbvKJZ87DECBTR3GQ30eOg" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,176" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;CAPTCHA resuelto en intento &quot; + (captchaAttempts + 1).ToString]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[out_success]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" ContentHash="88TNWKamOUKU-NIlrOSFJA" IconBase64="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" InformativeScreenshot="35ca26bc29b37827a4741c93c9193cc7.jpg" Reference="02ArrpoAt0eMrkGelrwmaQ/ZJI0tARQ0kGOHPYMg4rZmw" Selector="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" Url="https://micnt.com.ec/cntapp/guia104/php/guia_cntat.php?hflagsubmit=0&amp;cmbcriterio=3" Version="V2" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="467.2,221.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Error en CAPTCHA: &quot; + exception.Message]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[out_success]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finalmente" sap:VirtualizedContainerService.HintSize="467.2,89.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>

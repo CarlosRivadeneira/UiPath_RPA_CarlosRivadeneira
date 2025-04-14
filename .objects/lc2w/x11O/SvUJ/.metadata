@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Edge  Guía Telefónica CNT EP (1)",
+  "Type": "Screen",
+  "Id": "SvUJXTW50UiwbLQSp3sYOw",
+  "Reference": "02ArrpoAt0eMrkGelrwmaQ/SvUJXTW50UiwbLQSp3sYOw",
+  "ParentRef": "02ArrpoAt0eMrkGelrwmaQ/x11Ohmi_oUOMJhbBTheCMw",
+  "Created": "2025-04-14T06:58:00.2721363Z",
+  "Updated": "2025-04-14T06:58:00.2721363Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
