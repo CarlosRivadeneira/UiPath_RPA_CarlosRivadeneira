@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Ingresa a Mi CNT",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "VzrogQgUfU2W7YCnc-6NHw",
+  "Reference": "02ArrpoAt0eMrkGelrwmaQ/VzrogQgUfU2W7YCnc-6NHw",
+  "ParentRef": "02ArrpoAt0eMrkGelrwmaQ/Yx9fJpsSH0SuZnad47k_TQ",
+  "Created": "2025-04-14T05:39:09.1467084Z",
+  "Updated": "2025-04-14T05:39:09.1467084Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

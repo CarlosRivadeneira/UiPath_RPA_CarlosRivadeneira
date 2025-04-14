@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Edge Nueva pestaña",
+  "Type": "Screen",
+  "Id": "V55RwmVD3UC56UEVasAiMw",
+  "Reference": "02ArrpoAt0eMrkGelrwmaQ/V55RwmVD3UC56UEVasAiMw",
+  "ParentRef": "02ArrpoAt0eMrkGelrwmaQ/b-QyzRzjeECzdD_epD4SrQ",
+  "Created": "2025-04-14T05:36:30.1621645Z",
+  "Updated": "2025-04-14T05:36:30.1621645Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
