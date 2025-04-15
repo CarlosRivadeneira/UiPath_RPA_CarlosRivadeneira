@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="nkeR6zq1HESxTXXrmR3BUQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="ee1fc2fe-682a-48a2-9553-bc934ae4be77" CvTextArea="536, 477, 220, 14" CvTextArgument="No hay teléfonos con estos datos ::" CvType="Text" DesignTimeRectangle="281, 474, 719, 21" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname=':: No hay teléfonos con estos datos :: ' check:innerText=':: No hay teléfonos con estos datos ::' /&gt;" Guid="aad678d3-9312-4c46-8885-6ac40045b561" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="182d50d0dff844de2b4898e8a122deae.png" xmlns="">0VaWuv5IfekKEWNpQMJc2Uw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
