@@ -2,8 +2,10 @@
   <x:Members>
     <x:Property Name="in_out_captchaAttempts" Type="InOutArgument(x:Int32)" />
     <x:Property Name="out_success" Type="InArgument(x:Boolean)" />
-    <x:Property Name="argument1" Type="InArgument(x:String)" />
     <x:Property Name="in_browser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="out_browser" Type="OutArgument(ui:UiElement)" />
+    <x:Property Name="in_inputProvincia" Type="InArgument(x:String)" />
+    <x:Property Name="in_inputApellido" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -51,6 +53,7 @@
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
       <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Security</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -111,9 +114,10 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SolveCaptcha" sap:VirtualizedContainerService.HintSize="892.0000000000001,607.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SolveCaptcha" sap:VirtualizedContainerService.HintSize="892.0000000000001,2463.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="captchaText" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="captchaMap" />
@@ -125,28 +129,28 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="468.8,584" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="555.2,2440" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Intentar" sap:VirtualizedContainerService.HintSize="467.2,108" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="Intentar" sap:VirtualizedContainerService.HintSize="553.6,1964" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge  Guía Telefónica CNT EP" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="433.6,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_browser]" InteractionMode="DebuggerApi" ScopeGuid="80d5e447-59ea-48c8-814d-bbf784b93126" Version="V2">
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge  Guía Telefónica CNT EP" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="520,1904" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_browser]" InteractionMode="DebuggerApi" ScopeGuid="80d5e447-59ea-48c8-814d-bbf784b93126" Version="V2">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="467.2,762.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="486.4,1704" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NGetText DisplayName="Get Text 'estrella'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="433.6,189.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="80d5e447-59ea-48c8-814d-bbf784b93126" TextString="[captchaText]" Version="V4">
+                  <uix:NGetText DisplayName="Get Text 'estrella'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452.8,189.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="80d5e447-59ea-48c8-814d-bbf784b93126" TextString="[captchaText]" Version="V4">
                     <uix:NGetText.Target>
                       <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="0f899450-a3ce-4250-9266-7b56b9cece14" ContentHash="qo9M6493okuwAxUftmXdaA" CvTextArea="265, 700, 63, 16" CvType="AnyWordGroup" DesignTimeRectangle="267, 699, 61, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='captchaText' /&gt;" Guid="e153743d-531a-4db4-b5da-ab161431de3c" InformativeScreenshot="1b99202916056bc675db2194ec94cec3.png" Reference="02ArrpoAt0eMrkGelrwmaQ/-Ep4Yd0if0mKcvG3JhG9IQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" />
                     </uix:NGetText.Target>
@@ -157,7 +161,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NGetText>
-                  <Assign sap:VirtualizedContainerService.HintSize="433.6,114.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign sap:VirtualizedContainerService.HintSize="452.8,114.4" sap2010:WorkflowViewState.IdRef="Assign_1">
                     <Assign.To>
                       <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[captchaMap]</OutArgument>
                     </Assign.To>
@@ -171,43 +175,49 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Assign>
-                  <If Condition="[captchaMap.ContainsKey(captchaText)]" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[captchaMap.ContainsKey(captchaText)]" sap:VirtualizedContainerService.HintSize="452.8,1118.4" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="451.2,108" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign sap:VirtualizedContainerService.HintSize="417.6,48" sap2010:WorkflowViewState.IdRef="Assign_2">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[imageFile]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
                             <InArgument x:TypeArguments="x:String">[captchaMap(captchaText)]</InArgument>
                           </Assign.Value>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                         </Assign>
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="451.2,872" sap2010:WorkflowViewState.IdRef="Sequence_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If Condition="[captchaAttempts &gt;= 3]" sap:VirtualizedContainerService.HintSize="433.6,48" sap2010:WorkflowViewState.IdRef="If_2">
+                        <If Condition="[in_out_captchaAttempts &gt;= 3]" sap:VirtualizedContainerService.HintSize="417.6,812" sap2010:WorkflowViewState.IdRef="If_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -229,7 +239,7 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,164.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,574.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -238,10 +248,10 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <Assign sap:VirtualizedContainerService.HintSize="382.4,56.8" sap2010:WorkflowViewState.IdRef="Assign_3">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Int32">[captchaAttempts]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Int32">[in_out_captchaAttempts]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Int32">[captchaAttempts + 1]</InArgument>
+                                  <InArgument x:TypeArguments="x:Int32">[in_out_captchaAttempts + 1]</InArgument>
                                 </Assign.Value>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -250,14 +260,28 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </Assign>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SolveCaptcha - Invoke Workflow File (Workflows\SolveCaptcha.xaml)" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\SolveCaptcha.xaml">
+                              <uix:NNavigateBrowser Action="Refresh" DisplayName="Navigate Browser - Actualizar" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382.4,114.4" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V4" />
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PerformSearch - Invoke Workflow File (Workflows\PerformSearch.xaml)" sap:VirtualizedContainerService.HintSize="382.4,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\PerformSearch.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InOutArgument x:TypeArguments="x:Int32" x:Key="in_out_captchaAttempts">[captchaAttempts]</InOutArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="out_success" />
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_inputApellido">[in_inputApellido]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_inputProvincia">[in_inputProvincia]</InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_hasCaptcha" />
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_success">[out_success]</OutArgument>
+                                  <InArgument x:TypeArguments="ui:UiElement" x:Key="in_browser">[out_browser]</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SolveCaptcha - Invoke Workflow File (Workflows\SolveCaptcha.xaml)" sap:VirtualizedContainerService.HintSize="382.4,167.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\SolveCaptcha.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InOutArgument x:TypeArguments="x:Int32" x:Key="in_out_captchaAttempts">[in_out_captchaAttempts]</InOutArgument>
+                                  <InArgument x:TypeArguments="x:Boolean" x:Key="out_success">[out_success]</InArgument>
+                                  <InArgument x:TypeArguments="ui:UiElement" x:Key="in_browser">[in_browser]</InArgument>
+                                  <OutArgument x:TypeArguments="ui:UiElement" x:Key="out_browser">[out_browser]</OutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_inputProvincia">[in_inputProvincia]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_inputApellido">[in_inputApellido]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -268,7 +292,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80d5e447-59ea-48c8-814d-bbf784b93126" Version="V4">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80d5e447-59ea-48c8-814d-bbf784b93126" Version="V4">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="d65a5e2a-877d-4537-a0ea-5572f763371a" ContentHash="SZCFvD1dhkO17cTVIBKQnQ" CvElementArea="359, 742, 39, 46" CvType="Icon" DesignTimeRectangle="1506, 745, 40, 40" DesignTimeScaleFactor="1.25" ElementType="Icon" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='IMG' class='captchaImage' src='*{0}' /&gt;&quot;, imageFile)]" Guid="c263fedc-0c09-40bf-be61-5091c962b773" ImageBase64="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" InformativeScreenshot="cb0cf006b6533ba1dece49476ccf1dae.png" Reference="02ArrpoAt0eMrkGelrwmaQ/hbvKJZ87DECBTR3GQ30eOg" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" />
                     </uix:NClick.Target>
@@ -289,15 +313,49 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NClick>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,176" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;CAPTCHA resuelto en intento &quot; + (captchaAttempts + 1).ToString]" />
-                  <Assign sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452.8,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;CAPTCHA resuelto en intento &quot; + (captchaAttempts + 1).ToString]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <Assign sap:VirtualizedContainerService.HintSize="452.8,56.8" sap2010:WorkflowViewState.IdRef="Assign_4">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[out_success]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
                       <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                     </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </Assign>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Enviar'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452.8,49.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80d5e447-59ea-48c8-814d-bbf784b93126" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="51b8d2c9-00ee-4025-a52a-0e8c74dbbc7f" ContentHash="75hKvG2dL0GLjJtFeUxiHA" CvElementArea="330, 533, 68, 36" CvTextArea="343, 544, 42, 13" CvTextArgument="Enviar" CvType="Button" DesignTimeRectangle="331, 534, 65, 34" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='BUTTON' class='btn btn-primary' aaname='Enviar' check:innerText='Enviar' /&gt;" Guid="953f3d3e-de92-4148-af01-62d8902b7308" InformativeScreenshot="3c21325cef70d0a14ba3a62124093a89.png" Reference="02ArrpoAt0eMrkGelrwmaQ/V-oGmAE2YES8pJ0LQ_9D4A" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
                 </Sequence>
               </ActivityAction>
             </uix:NApplicationCard.Body>
@@ -306,7 +364,7 @@
             </uix:NApplicationCard.TargetApp>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -319,13 +377,13 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="467.2,221.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,221.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Error en CAPTCHA: &quot; + exception.Message]">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Error en CAPTCHA: &quot; + exception.Message]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -333,7 +391,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
-              <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign sap:VirtualizedContainerService.HintSize="520,104.8" sap2010:WorkflowViewState.IdRef="Assign_5">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Boolean">[out_success]</OutArgument>
                 </Assign.To>
@@ -346,7 +404,7 @@
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Finalmente" sap:VirtualizedContainerService.HintSize="467.2,89.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence DisplayName="Finalmente" sap:VirtualizedContainerService.HintSize="553.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

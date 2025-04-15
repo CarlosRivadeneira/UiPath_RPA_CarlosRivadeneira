@@ -125,7 +125,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge  Guía Telefónica CNT EP" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="483.2,490.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_browser]" InteractionMode="DebuggerApi" ScopeGuid="f373e081-1def-4873-9faf-7ec37e69c898" Version="V2">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge  Guía Telefónica CNT EP" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="483.2,490.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_browser]" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="f373e081-1def-4873-9faf-7ec37e69c898" Version="V2">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -141,7 +141,7 @@
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="1619ef2c-5458-464a-9559-431f91d9f722" ContentHash="cjsCOfjaL0Oz7L9xk8TPAA" CvElementArea="1039, 602, 256, 46" CvType="InputBox" DesignTimeRectangle="1042, 605, 250, 42" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='form-control' aaname='' /&gt;" Guid="78715d5f-08b2-4c94-85c2-b6fbfbe4e684" InformativeScreenshot="d6a708384b7a5f327743439aa6947724.png" Reference="02ArrpoAt0eMrkGelrwmaQ/3txcc6B9cEOJ6mi7g762PA" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                             <uix:Target CVScreenId="1619ef2c-5458-464a-9559-431f91d9f722" CvTextArea="1120, 576, 87, 20" CvTextArgument="Apellidos:" CvType="Text" DesignTimeRectangle="1123, 574, 89, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Apellidos: ' type='' tag='LABEL' class='' check:innerText='Apellidos:' /&gt;" Guid="52120d1a-b5f2-4533-b8a9-ed235bd4ef5f" SearchSteps="FuzzySelector, CV" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
@@ -197,7 +197,7 @@
                     <uix:NSelectItem.Target>
                       <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="1619ef2c-5458-464a-9559-431f91d9f722" ContentHash="EwjfTtNTrkuFIRwKtBTB6Q" CvElementArea="265, 603, 366, 43" CvType="InputBox" DesignTimeRectangle="267, 605, 362, 42" DesignTimeScaleFactor="1.25" ElementType="DropDown" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SELECT' class='form-control' aaname='' /&gt;" Guid="967e12fd-dfad-4d03-b692-2a467b486e07" InformativeScreenshot="9eea58c6fa0d8f097ac822e7d4e715fd.png" Reference="02ArrpoAt0eMrkGelrwmaQ/I_NyBl1Thk66WjFgBXQyFw" ScopeSelectorArgument="&lt;html app='msedge.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                             <uix:Target CVScreenId="1619ef2c-5458-464a-9559-431f91d9f722" CvTextArea="265, 576, 86, 16" CvTextArgument="Provincia:" CvType="Text" DesignTimeRectangle="267, 574, 89, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='lselect' aaname='Provincia: ' check:innerText='Provincia:' /&gt;" Guid="4bdbeda8-3a86-48ad-91d5-37ac7473f84e" SearchSteps="FuzzySelector, CV" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
