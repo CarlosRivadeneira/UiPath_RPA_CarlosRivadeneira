@@ -113,7 +113,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="NavigateToCNT" sap:VirtualizedContainerService.HintSize="1062.4,1710.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="NavigateToCNT" sap:VirtualizedContainerService.HintSize="1062.4,1836.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="elementExists" />
       <Variable x:TypeArguments="x:Boolean" Name="success" />
@@ -124,33 +124,34 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1062.4,1687.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1062.4,1813.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Intentar" sap:VirtualizedContainerService.HintSize="1060.8,1332.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence DisplayName="Intentar" sap:VirtualizedContainerService.HintSize="1060.8,1459.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Nueva pestaña" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1027.2,313.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" OutUiElement="[out_browser]" ScopeGuid="a5405ec8-4543-4cf1-8e97-ba09f6d1f671" Version="V2">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Open Edge" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1027.2,400" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" OutUiElement="[out_browser]" ScopeGuid="a5405ec8-4543-4cf1-8e97-ba09f6d1f671" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="449.6,111.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NGoToUrl DisplayName="Go To URL - " HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[in_config(&quot;urlGuiaCNT&quot;)]" Version="V4" />
+                  <uix:NGoToUrl DisplayName="Go To URL - " HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,49.6" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[in_config(&quot;urlGuiaCNT&quot;)]" Version="V4" />
                 </Sequence>
               </ActivityAction>
             </uix:NApplicationCard.Body>
@@ -164,17 +165,17 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </uix:NApplicationCard>
-          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1027.2,583.2" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:02">
+          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1027.2,623.2" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:02">
             <ui:RetryScope.ActivityBody>
               <ActivityAction>
-                <Sequence DisplayName="Acción" sap:VirtualizedContainerService.HintSize="985.6,366.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="Acción" sap:VirtualizedContainerService.HintSize="985.6,326.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NCheckState DisplayName="Comprobar el estado de la aplicación 'Ingresa a Mi CNT'" sap:VirtualizedContainerService.HintSize="952,306.4" sap2010:WorkflowViewState.IdRef="NCheckState_2" Version="V4">
+                  <uix:NCheckState DisplayName="Comprobar el estado de la aplicación 'Ingresa a Mi CNT'" sap:VirtualizedContainerService.HintSize="952,266.4" sap2010:WorkflowViewState.IdRef="NCheckState_2" Version="V4">
                     <uix:NCheckState.IfExists>
                       <Sequence DisplayName="El objetivo aparece." sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>

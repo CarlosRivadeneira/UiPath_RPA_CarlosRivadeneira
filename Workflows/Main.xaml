@@ -113,7 +113,6 @@
       <Variable x:TypeArguments="sd:DataTable" Name="dtConfig" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="config" />
       <Variable x:TypeArguments="x:String" Name="inputApellido" />
-      <Variable x:TypeArguments="x:String" Name="inputCorreo" />
       <Variable x:TypeArguments="sd:DataTable" Name="outputContactos" />
       <Variable x:TypeArguments="x:Int32" Name="totalContactos" />
       <Variable x:TypeArguments="x:Int32" Name="captchaAttempts" />
@@ -122,13 +121,15 @@
       <Variable x:TypeArguments="x:Boolean" Name="success" />
       <Variable x:TypeArguments="ui:UiElement" Name="browser" />
       <Variable x:TypeArguments="x:String" Name="inputProvincia" />
+      <Variable x:TypeArguments="x:String" Name="finalMessage" />
+      <Variable x:TypeArguments="x:String" Name="inputCorreo" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <StateMachine InitialState="{x:Reference __ReferenceID6}" DisplayName="State Machine" sap:VirtualizedContainerService.HintSize="600,648" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+    <StateMachine InitialState="{x:Reference __ReferenceID8}" DisplayName="State Machine" sap:VirtualizedContainerService.HintSize="600,648" sap2010:WorkflowViewState.IdRef="StateMachine_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,22 +140,23 @@
           <av:PointCollection x:Key="ConnectorLocation">419.8,224.6 419.8,280</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <State x:Name="__ReferenceID6" DisplayName="Init" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_2">
+      <State x:Name="__ReferenceID8" DisplayName="Init" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_2">
         <State.Entry>
-          <Sequence sap:VirtualizedContainerService.HintSize="712,1371.2" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <Sequence sap:VirtualizedContainerService.HintSize="483.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Configuration" sap:VirtualizedContainerService.HintSize="678.4,1144" sap2010:WorkflowViewState.IdRef="Sequence_20">
+            <Sequence DisplayName="Configuration" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="644.8,890.4" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_3">
+              <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_3">
                 <ueab:ExcelProcessScopeX.Body>
                   <ActivityAction x:TypeArguments="ui:IExcelProcess">
                     <ActivityAction.Argument>
@@ -181,7 +183,7 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="510.4,545.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="Config\Config.xlsx">
+                          <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Excel de Configuraciones" sap:VirtualizedContainerService.HintSize="510.4,545.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="Config\Config.xlsx">
                             <ueab:ExcelApplicationCard.Body>
                               <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                                 <ActivityAction.Argument>
@@ -194,7 +196,7 @@
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="443.2,192.8" sap2010:WorkflowViewState.IdRef="ReadRangeX_4" Range="[Excel.Sheet(&quot;Settings&quot;)]" SaveTo="[dtConfig]" />
+                                  <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="443.2,192.8" sap2010:WorkflowViewState.IdRef="ReadRangeX_4" Range="[Excel.Sheet(&quot;Settings&quot;)]" SaveTo="[dtConfig]" VisibleOnly="False" />
                                 </Sequence>
                               </ActivityAction>
                             </ueab:ExcelApplicationCard.Body>
@@ -206,12 +208,12 @@
                 </ueab:ExcelProcessScopeX.Body>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ueab:ExcelProcessScopeX>
-              <Assign sap:VirtualizedContainerService.HintSize="644.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign DisplayName="Assign config table" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="Assign_4">
                 <Assign.To>
                   <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[config]</OutArgument>
                 </Assign.To>
@@ -220,12 +222,12 @@
                 </Assign.Value>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="644.8,48" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Configuración cargada: &quot; + config(&quot;urlGuiaCNT&quot;)]">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Configuración cargada: &quot; + config(&quot;urlGuiaCNT&quot;)]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -234,7 +236,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
             </Sequence>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Initialize - Invoke Workflow File (Workflows\Initialize.xaml)" sap:VirtualizedContainerService.HintSize="678.4,167.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Initialize.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Initialize Workflow" sap:VirtualizedContainerService.HintSize="449.6,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Initialize.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <OutArgument x:TypeArguments="x:String" x:Key="out_inputApellido">[inputApellido]</OutArgument>
                 <OutArgument x:TypeArguments="x:String" x:Key="out_inputProvincia">[inputProvincia]</OutArgument>
@@ -244,7 +246,7 @@
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -268,14 +270,15 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Transition.To>
-              <State x:Name="__ReferenceID0" DisplayName="ValidateInputs" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_3">
+              <State x:Name="__ReferenceID1" DisplayName="ValidateInputs" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_3">
                 <State.Entry>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ValidateInputs - Invoke Workflow File (Workflows\ValidateInputs.xaml)" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\ValidateInputs.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ValidateInputs Workflow" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\ValidateInputs.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_inputApellido">[inputApellido]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_inputProvincia">[inputProvincia]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_inputCorreo">[inputCorreo]</InArgument>
                       <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isValid">[isValid]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_finalMessage">[finalMessage]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_inputCorreo">[inputCorreo]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </State.Entry>
@@ -290,16 +293,16 @@
                   <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:PointCollection x:Key="ConnectorLocation">745.4,310 775.4,310 775.4,453 744.6,453</av:PointCollection>
+                        <av:PointCollection x:Key="ConnectorLocation">744.6,310 774.6,310 774.6,453 744.6,453</av:PointCollection>
                         <x:Int32 x:Key="SrcConnectionPointIndex">36</x:Int32>
                         <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <Transition.Condition>[isValid = True]</Transition.Condition>
                     <Transition.To>
-                      <State x:Name="__ReferenceID1" DisplayName="NavigateToCNT" sap:VirtualizedContainerService.HintSize="153.6,60" sap2010:WorkflowViewState.IdRef="State_4">
+                      <State x:Name="__ReferenceID2" DisplayName="NavigateToCNT" sap:VirtualizedContainerService.HintSize="153.6,60" sap2010:WorkflowViewState.IdRef="State_4">
                         <State.Entry>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="NavigateToCNT - Invoke Workflow File (Workflows\NavigateToCNT.xaml)" sap:VirtualizedContainerService.HintSize="337.6,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\NavigateToCNT.xaml">
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="NavigateToCNT Workflow" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\NavigateToCNT.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
                               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
                               <OutArgument x:TypeArguments="ui:UiElement" x:Key="out_browser">[browser]</OutArgument>
@@ -318,15 +321,16 @@
                           <Transition DisplayName="T4" sap2010:WorkflowViewState.IdRef="Transition_5">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:PointCollection x:Key="ConnectorLocation">591,450 561,450 561,470 484.4,470</av:PointCollection>
+                                <av:PointCollection x:Key="ConnectorLocation">591,450 561,450 561,470 483.6,470</av:PointCollection>
                                 <x:Int32 x:Key="SrcConnectionPointIndex">37</x:Int32>
                                 <x:Int32 x:Key="DestConnectionPointIndex">36</x:Int32>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
+                            <Transition.Condition>[success = True]</Transition.Condition>
                             <Transition.To>
-                              <State x:Name="__ReferenceID2" DisplayName="PerformSearch" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_5">
+                              <State x:Name="__ReferenceID3" DisplayName="PerformSearch" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_5">
                                 <State.Entry>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PerformSearch - Invoke Workflow File (Workflows\PerformSearch.xaml)" sap:VirtualizedContainerService.HintSize="337.6,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\PerformSearch.xaml">
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PerformSearch Workflow" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\PerformSearch.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
                                       <InArgument x:TypeArguments="x:String" x:Key="in_inputApellido">[inputApellido]</InArgument>
                                       <InArgument x:TypeArguments="x:String" x:Key="in_inputProvincia">[inputProvincia]</InArgument>
@@ -347,15 +351,16 @@
                                   <Transition DisplayName="T6" sap2010:WorkflowViewState.IdRef="Transition_8">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:PointCollection x:Key="ConnectorLocation">334,473 304,473 304,480 157.4,480</av:PointCollection>
+                                        <av:PointCollection x:Key="ConnectorLocation">334,473 304,473 304,480 156.6,480</av:PointCollection>
                                         <x:Int32 x:Key="SrcConnectionPointIndex">41</x:Int32>
                                         <x:Int32 x:Key="DestConnectionPointIndex">36</x:Int32>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
+                                    <Transition.Condition>[success = True]</Transition.Condition>
                                     <Transition.To>
-                                      <State x:Name="__ReferenceID3" DisplayName="SolveCaptcha" sap:VirtualizedContainerService.HintSize="388.8,505.6" sap2010:WorkflowViewState.IdRef="State_6">
+                                      <State x:Name="__ReferenceID4" DisplayName="SolveCaptcha" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_6">
                                         <State.Entry>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SolveCaptcha - Invoke Workflow File (Workflows\SolveCaptcha.xaml)" sap:VirtualizedContainerService.HintSize="344,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\SolveCaptcha.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SolveCaptcha Workflow" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\SolveCaptcha.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
                                               <InOutArgument x:TypeArguments="x:Int32" x:Key="in_out_captchaAttempts">[captchaAttempts]</InOutArgument>
                                               <InArgument x:TypeArguments="x:Boolean" x:Key="out_success">[success]</InArgument>
@@ -363,6 +368,7 @@
                                               <OutArgument x:TypeArguments="ui:UiElement" x:Key="out_browser">[browser]</OutArgument>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_inputProvincia">[inputProvincia]</InArgument>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_inputApellido">[inputApellido]</InArgument>
+                                              <OutArgument x:TypeArguments="x:String" x:Key="out_finalMessage">[finalMessage]</OutArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                           </ui:InvokeWorkflowFile>
                                         </State.Entry>
@@ -377,15 +383,16 @@
                                           <Transition DisplayName="T9" sap2010:WorkflowViewState.IdRef="Transition_13">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <av:PointCollection x:Key="ConnectorLocation">74.68,450 74.68,420 72.68,420 72.68,180</av:PointCollection>
+                                                <av:PointCollection x:Key="ConnectorLocation">74.32,450 74.32,420 69.32,420 69.32,130</av:PointCollection>
                                                 <x:Int32 x:Key="SrcConnectionPointIndex">34</x:Int32>
                                                 <x:Int32 x:Key="DestConnectionPointIndex">35</x:Int32>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
+                                            <Transition.Condition>[success = True]</Transition.Condition>
                                             <Transition.To>
-                                              <State x:Name="__ReferenceID4" DisplayName="ExtractData" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_7">
+                                              <State x:Name="__ReferenceID5" DisplayName="ExtractData" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_7">
                                                 <State.Entry>
-                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExtractData - Invoke Workflow File (Workflows\ExtractData.xaml)" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows\ExtractData.xaml">
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExtractData Workflow" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows\ExtractData.xaml">
                                                     <ui:InvokeWorkflowFile.Arguments>
                                                       <InArgument x:TypeArguments="ui:UiElement" x:Key="in_browser">[browser]</InArgument>
                                                       <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_out_outputContactos">[outputContactos]</InOutArgument>
@@ -397,34 +404,29 @@
                                                 </State.Entry>
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <av:Point x:Key="ShapeLocation">5,120</av:Point>
+                                                    <av:Point x:Key="ShapeLocation">2,70</av:Point>
                                                     <av:Size x:Key="ShapeSize">149.6,60</av:Size>
                                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <State.Transitions>
-                                                  <Transition DisplayName="T3" sap2010:WorkflowViewState.IdRef="Transition_15">
+                                                  <Transition DisplayName="T11" sap2010:WorkflowViewState.IdRef="Transition_17">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <av:PointCollection x:Key="ConnectorLocation">154.6,147 184.6,147 184.6,74 355,74</av:PointCollection>
-                                                        <x:Int32 x:Key="SrcConnectionPointIndex">32</x:Int32>
-                                                        <x:Int32 x:Key="DestConnectionPointIndex">29</x:Int32>
+                                                        <av:PointCollection x:Key="ConnectorLocation">151.6,115 181.6,115 181.6,141 735,141</av:PointCollection>
+                                                        <x:Int32 x:Key="SrcConnectionPointIndex">56</x:Int32>
+                                                        <x:Int32 x:Key="DestConnectionPointIndex">65</x:Int32>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
+                                                    <Transition.Condition>[success = False]</Transition.Condition>
                                                     <Transition.To>
-                                                      <State x:Name="__ReferenceID5" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_13" IsFinal="True">
+                                                      <State x:Name="__ReferenceID0" DisplayName="Error" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_14" IsFinal="True">
                                                         <State.Entry>
-                                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GenerateExcel - Invoke Workflow File (Workflows\GenerateExcel.xaml)" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Workflows\GenerateExcel.xaml">
-                                                            <ui:InvokeWorkflowFile.Arguments>
-                                                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
-                                                              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_outputContactos">[outputContactos]</InOutArgument>
-                                                              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_success">[success]</OutArgument>
-                                                            </ui:InvokeWorkflowFile.Arguments>
-                                                          </ui:InvokeWorkflowFile>
+                                                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Validation Message" sap:VirtualizedContainerService.HintSize="333.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[finalMessage]" />
                                                         </State.Entry>
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                            <av:Point x:Key="ShapeLocation">355,50</av:Point>
+                                                            <av:Point x:Key="ShapeLocation">735,90</av:Point>
                                                             <av:Size x:Key="ShapeSize">149.6,60</av:Size>
                                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                           </scg:Dictionary>
@@ -432,21 +434,196 @@
                                                       </State>
                                                     </Transition.To>
                                                   </Transition>
+                                                  <Transition DisplayName="T3" sap2010:WorkflowViewState.IdRef="Transition_15">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <av:PointCollection x:Key="ConnectorLocation">151.6,97 181.6,97 181.6,52.00000000000001 305,52.00000000000001</av:PointCollection>
+                                                        <x:Int32 x:Key="SrcConnectionPointIndex">32</x:Int32>
+                                                        <x:Int32 x:Key="DestConnectionPointIndex">53</x:Int32>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Transition.Condition>
+                                                      <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="success = True" />
+                                                    </Transition.Condition>
+                                                    <Transition.To>
+                                                      <State x:Name="__ReferenceID7" DisplayName="State" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_15">
+                                                        <State.Entry>
+                                                          <Sequence sap:VirtualizedContainerService.HintSize="601.6,960.8" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GenerateExcel Workflow" sap:VirtualizedContainerService.HintSize="568,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Workflows\GenerateExcel.xaml">
+                                                              <ui:InvokeWorkflowFile.Arguments>
+                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
+                                                                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_outputContactos">[outputContactos]</InOutArgument>
+                                                                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_success">[success]</OutArgument>
+                                                              </ui:InvokeWorkflowFile.Arguments>
+                                                            </ui:InvokeWorkflowFile>
+                                                            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="568,724.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_5">
+                                                              <ueab:ExcelProcessScopeX.Body>
+                                                                <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                                                                  <ActivityAction.Argument>
+                                                                    <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                                                                  </ActivityAction.Argument>
+                                                                  <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="534.4,575.2" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Results Excel" sap:VirtualizedContainerService.HintSize="500.8,515.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_5" ResizeWindow="Maximize" SensitivityOperation="None" WorkbookPath="Config\ContactosApellido.xlsx">
+                                                                      <ueab:ExcelApplicationCard.Body>
+                                                                        <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                                                                          <ActivityAction.Argument>
+                                                                            <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                                                                          </ActivityAction.Argument>
+                                                                          <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="467.2,222.4" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                                                            <sap:WorkflowViewStateService.ViewState>
+                                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                              </scg:Dictionary>
+                                                                            </sap:WorkflowViewStateService.ViewState>
+                                                                            <ueab:DeleteRowsX DeleteRowsOption="Specific" DisplayName="Delete &quot;text&quot; row" HasHeaders="True" sap:VirtualizedContainerService.HintSize="433.6,162.4" sap2010:WorkflowViewState.IdRef="DeleteRowsX_2" Range="[Excel.Sheet(&quot;A1&quot;)]" RowPositions="2" />
+                                                                          </Sequence>
+                                                                        </ActivityAction>
+                                                                      </ueab:ExcelApplicationCard.Body>
+                                                                    </ueab:ExcelApplicationCard>
+                                                                  </Sequence>
+                                                                </ActivityAction>
+                                                              </ueab:ExcelProcessScopeX.Body>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </ueab:ExcelProcessScopeX>
+                                                          </Sequence>
+                                                        </State.Entry>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <av:Point x:Key="ShapeLocation">305,10</av:Point>
+                                                            <av:Size x:Key="ShapeSize">149.6,60</av:Size>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <State.Transitions>
+                                                          <Transition DisplayName="T12" sap2010:WorkflowViewState.IdRef="Transition_21">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <av:PointCollection x:Key="ConnectorLocation">454.6,40 585,40</av:PointCollection>
+                                                                <x:Int32 x:Key="SrcConnectionPointIndex">36</x:Int32>
+                                                                <x:Int32 x:Key="DestConnectionPointIndex">37</x:Int32>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <Transition.To>
+                                                              <State x:Name="__ReferenceID6" DisplayName="GenerateExcel" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_13" IsFinal="True">
+                                                                <State.Entry>
+                                                                  <Sequence sap:VirtualizedContainerService.HintSize="449.6,284" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail - Invoke Workflow File (Workflows\SendEmail.xaml)" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Workflows\SendEmail.xaml">
+                                                                      <ui:InvokeWorkflowFile.Arguments>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="in_inputCorreo">[inputCorreo]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:Int32" x:Key="in_totalContactos">[totalContactos]</InArgument>
+                                                                      </ui:InvokeWorkflowFile.Arguments>
+                                                                    </ui:InvokeWorkflowFile>
+                                                                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="&quot;Succesful&quot;" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;El flujo de trabajo se realizó correctamente&quot;]">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                    </ui:MessageBox>
+                                                                  </Sequence>
+                                                                </State.Entry>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <av:Point x:Key="ShapeLocation">585,10</av:Point>
+                                                                    <av:Size x:Key="ShapeSize">149.6,60</av:Size>
+                                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </State>
+                                                            </Transition.To>
+                                                          </Transition>
+                                                        </State.Transitions>
+                                                      </State>
+                                                    </Transition.To>
+                                                  </Transition>
                                                 </State.Transitions>
                                               </State>
                                             </Transition.To>
+                                          </Transition>
+                                          <Transition DisplayName="T10" sap2010:WorkflowViewState.IdRef="Transition_18">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:PointCollection x:Key="ConnectorLocation">111.72000000000001,450 111.72000000000001,390 705,390 705,111 735,111</av:PointCollection>
+                                                <x:Int32 x:Key="SrcConnectionPointIndex">54</x:Int32>
+                                                <x:Int32 x:Key="DestConnectionPointIndex">25</x:Int32>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Transition.To>
+                                              <x:Reference>__ReferenceID0</x:Reference>
+                                            </Transition.To>
+                                            <Transition.Condition>[success = False]</Transition.Condition>
                                           </Transition>
                                         </State.Transitions>
                                       </State>
                                     </Transition.To>
                                   </Transition>
+                                  <Transition DisplayName="T8" sap2010:WorkflowViewState.IdRef="Transition_19">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:PointCollection x:Key="ConnectorLocation">401.32,500 401.32,516 705,516 705,126 735,126</av:PointCollection>
+                                        <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
+                                        <x:Int32 x:Key="DestConnectionPointIndex">45</x:Int32>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Transition.To>
+                                      <x:Reference>__ReferenceID0</x:Reference>
+                                    </Transition.To>
+                                    <Transition.Condition>[success = False]</Transition.Condition>
+                                  </Transition>
                                 </State.Transitions>
                               </State>
                             </Transition.To>
                           </Transition>
+                          <Transition DisplayName="T7" sap2010:WorkflowViewState.IdRef="Transition_20">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:PointCollection x:Key="ConnectorLocation">660.12,480 660.12,510 847.8,510 847.8,150</av:PointCollection>
+                                <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
+                                <x:Int32 x:Key="DestConnectionPointIndex">59</x:Int32>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Transition.To>
+                              <x:Reference>__ReferenceID0</x:Reference>
+                            </Transition.To>
+                            <Transition.Condition>[success = False]</Transition.Condition>
+                          </Transition>
                         </State.Transitions>
                       </State>
                     </Transition.To>
+                  </Transition>
+                  <Transition DisplayName="T5" sap2010:WorkflowViewState.IdRef="Transition_16">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:PointCollection x:Key="ConnectorLocation">677.28,280 677.28,250 802.6800000000001,250 802.6800000000001,150</av:PointCollection>
+                        <x:Int32 x:Key="SrcConnectionPointIndex">42</x:Int32>
+                        <x:Int32 x:Key="DestConnectionPointIndex">35</x:Int32>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Transition.To>
+                      <x:Reference>__ReferenceID0</x:Reference>
+                    </Transition.To>
+                    <Transition.Condition>[isValid = False]</Transition.Condition>
                   </Transition>
                 </State.Transitions>
               </State>
@@ -454,12 +631,14 @@
           </Transition>
         </State.Transitions>
       </State>
-      <x:Reference>__ReferenceID0</x:Reference>
       <x:Reference>__ReferenceID1</x:Reference>
       <x:Reference>__ReferenceID2</x:Reference>
       <x:Reference>__ReferenceID3</x:Reference>
       <x:Reference>__ReferenceID4</x:Reference>
       <x:Reference>__ReferenceID5</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
+      <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID7</x:Reference>
     </StateMachine>
   </Sequence>
 </Activity>
